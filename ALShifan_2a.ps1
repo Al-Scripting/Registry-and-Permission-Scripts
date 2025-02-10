@@ -1,7 +1,7 @@
 # Define registry path and value
 $regPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
-$valueName = "Alice_<YourFullName>_TestProgram"
-$valueData = "C:\Windows\System32\notepad.exe"  # Notepad as a benign program
+$valueName = "Alice_alshifan_TestProgram"
+$valueData = "C:\Windows\System32\notepad.exe"  # Notepad as a the program starts
 
 # Check if running as administrator
 $adminCheck = [System.Security.Principal.WindowsPrincipal] [System.Security.Principal.WindowsIdentity]::GetCurrent()

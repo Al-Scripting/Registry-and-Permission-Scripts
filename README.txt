@@ -1,135 +1,142 @@
-### README - Registry and File Permission Scripts
+# 🛠️ Registry & File Permission Scripts
 
-## **Overview**
-This repository contains four scripts for managing Windows registry keys and file permissions in Linux.
+> **A collection of scripts for managing Windows registry keys and file permissions in Linux.**  
+> Supports **Linux (Bash), Windows (PowerShell, Python)** for registry and file operations.
 
-1. **Linux Shell Script (`<YourFullName>_restrictfiles.sh`)**  
-   - Finds all files in `/home` that contain a given text string.
-   - Modifies their permissions so only `Alice_<YourFullName>` has read access.
+---
 
-2. **PowerShell Script (`<YourFullName>_2a.ps1`)**  
-   - Adds a new startup entry to the Windows registry (`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run`).
-   - The registry entry name contains the student's full name and runs a benign program (Notepad).
+## 🐜 **Overview**
+This repository contains four scripts:
 
-3. **Python Script (`<YourFullName>_2b.py`)**  
-   - Lists all values in the `Run` and `RunOnce` registry keys, including subkeys.
+1. **Linux Shell Script (`ALShifan_restrictfiles.sh`)**  
+   - Finds all files in `/home` that contain a specified text.
+   - Modifies permissions so only `Alice_ALShifan` has read access.
+
+2. **PowerShell Script (`ALShifan_2a.ps1`)**  
+   - Adds a **startup entry** to the Windows registry (`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run`).
+   - Runs a **benign program (Notepad).**
+
+3. **Python Script (`ALShifan_2b.py`)**  
+   - Lists all values in the `Run` and `RunOnce` registry keys.
    - Works for both `HKEY_LOCAL_MACHINE` and `HKEY_CURRENT_USER`.
 
-4. **PowerShell Script (`<YourFullName>_2b.ps1`)**  
-   - Lists all values in the `Run` and `RunOnce` registry keys recursively.
-   - Works for both `HKEY_LOCAL_MACHINE` and `HKEY_CURRENT_USER`.
+4. **PowerShell Script (`ALShifan_2b.ps1`)**  
+   - Recursively lists all values in the `Run` and `RunOnce` registry keys.
 
 ---
 
-## **Prerequisites**
-- **Linux Shell Script:** Needs Linux with bash and appropriate user permissions.
-- **PowerShell Script:** Needs Windows 10+ and must be run as Administrator.
-- **Python Script:** Needs Python 3 installed on a Windows system.
+## 🖥️ **Prerequisites**
+| Script Type        | Requirements |
+|--------------------|-------------|
+| **Linux Shell**   | Bash, appropriate user permissions |
+| **PowerShell**    | Windows 10+, must be run as **Administrator** |
+| **Python**        | Python 3 installed on **Windows** |
 
 ---
 
-## **Usage Instructions**
+## 🚀 **Usage Instructions**
 
-### **(1) Linux Shell Script - `<YourFullName>_restrictfiles.sh`**
-**Purpose:** Finds files containing a specific text and changes their permissions.
+### 🔹 **(1) Linux Shell Script - `ALShifan_restrictfiles.sh`**
+**Purpose:** Finds files containing a **specific text** and **modifies permissions**.
 
 #### **Run the Script:**
-1. Open a terminal and navigate to the script directory:
-   ```sh
-   cd /path/to/script/
-   ```
-2. Make the script executable:
-   ```sh
-   chmod +x <YourFullName>_restrictfiles.sh
-   ```
-3. Run the script with a search string:
-   ```sh
-   ./<YourFullName>_restrictfiles.sh "search text"
-   ```
-4. Verify file permissions:
-   ```sh
-   ls -l /home
-   ```
+```sh
+# Navigate to the script directory
+cd /path/to/script/
+
+# Make the script executable
+chmod +x ALShifan_restrictfiles.sh
+
+# Run the script with a search string
+./ALShifan_restrictfiles.sh "search text"
+
+# Verify file permissions
+ls -l /home
+```
 
 ---
 
-### **(2) PowerShell Script - `<YourFullName>_2a.ps1`**
-**Purpose:** Adds a startup registry key for a benign program.
+### 🔹 **(2) PowerShell Script - `ALShifan_2a.ps1`**
+**Purpose:** Adds a startup **registry key** for a **benign program (Notepad).**
 
 #### **Run the Script:**
-1. Open **PowerShell as Administrator**.
-2. Navigate to the script’s directory:
-   ```powershell
-   cd "C:\path\to\script\directory"
-   ```
-3. Run the script:
-   ```powershell
-   .\YourFullName_2a.ps1
-   ```
-4. Verify the registry entry:
-   ```powershell
-   Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
-   ```
+```powershell
+# Open PowerShell as Administrator
+# Navigate to the script directory
+cd "C:\path\to\script\directory"
+
+# Run the script
+.\ALShifan_2a.ps1
+
+# Verify the registry entry
+Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+```
 
 ---
 
-### **(3) Python Script - `<YourFullName>_2b.py`**
-**Purpose:** Lists all values in the `Run` and `RunOnce` registry keys (including subkeys).
+### 🔹 **(3) Python Script - `ALShifan_2b.py`**
+**Purpose:** Lists all values in the **Run** and **RunOnce** registry keys.
 
 #### **Run the Script:**
-1. Open **Command Prompt as Administrator**.
-2. Navigate to the script’s directory:
-   ```sh
-   cd C:\path\to\script\directory
-   ```
-3. Run the script:
-   ```sh
-   python YourFullName_2b.py
-   ```
-4. Expected Output:
-   ```
-   [*] Scanning Windows startup registry keys...
+```sh
+# Open Command Prompt as Administrator
+# Navigate to the script directory
+cd C:\path\to\script\directory
 
-   [+] Listing values in: SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-       Alice_YourFullName_TestProgram: C:\Windows\System32\notepad.exe
-       OneDrive: "C:\Program Files\Microsoft OneDrive\OneDrive.exe" /background
-   ```
+# Run the script
+python ALShifan_2b.py
+```
+
+#### **Expected Output:**
+```
+[*] Scanning Windows startup registry keys...
+
+[+] Listing values in: SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+    Alice_ALShifan_TestProgram: C:\Windows\System32\notepad.exe
+    OneDrive: "C:\Program Files\Microsoft OneDrive\OneDrive.exe" /background
+```
 
 ---
 
-### **(4) PowerShell Script - `<YourFullName>_2b.ps1`**
-**Purpose:** Lists all values in the `Run` and `RunOnce` registry keys recursively.
+### 🔹 **(4) PowerShell Script - `ALShifan_2b.ps1`**
+**Purpose:** Lists all values in the **Run** and **RunOnce** registry keys recursively.
 
 #### **Run the Script:**
-1. Open **PowerShell as Administrator**.
-2. Navigate to the script’s directory:
-   ```powershell
-   cd "C:\path\to\script\directory"
-   ```
-3. Run the script:
-   ```powershell
-   .\YourFullName_2b.ps1
-   ```
-4. Expected Output:
-   ```
-   [*] Scanning Windows startup registry keys...
+```powershell
+# Open PowerShell as Administrator
+# Navigate to the script directory
+cd "C:\path\to\script\directory"
 
-   [+] Listing values in: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-       Alice_YourFullName_TestProgram : C:\Windows\System32\notepad.exe
-       OneDrive : "C:\Program Files\Microsoft OneDrive\OneDrive.exe" /background
-   ```
+# Run the script
+.\ALShifan_2b.ps1
+```
 
----
+#### **Expected Output:**
+```
+[*] Scanning Windows startup registry keys...
 
-## **Troubleshooting**
-- **PowerShell script requires Administrator privileges** – Right-click PowerShell and select "Run as Administrator".
-- **Python script requires Python 3** – Check by running:
-  ```sh
-  python --version
-  ```
-- **Linux script requires correct user permissions** – Use `sudo` if necessary.
+[+] Listing values in: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+    Alice_ALShifan_TestProgram : C:\Windows\System32\notepad.exe
+    OneDrive : "C:\Program Files\Microsoft OneDrive\OneDrive.exe" /background
+```
 
 ---
 
-## **License**
-This project is for educational purposes only.
+## 🔧 **Troubleshooting**
+| Issue | Solution |
+|-------|----------|
+| ❌ **PowerShell script fails** | Run as **Administrator** |
+| ❌ **Python script not recognized** | Ensure Python 3 is installed (`python --version`) |
+| ❌ **Linux script permission denied** | Use `sudo` or `chmod +x` |
+
+---
+
+## 📚 **License**
+**This project is for educational purposes only.** 🏫  
+Use responsibly and ensure proper authorization before modifying registry or file permissions.
+
+---
+
+## ⭐ **Contribute & Star This Repository!**
+If you find this useful, **give it a ⭐ on GitHub**! 💖
+
